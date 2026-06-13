@@ -1,10 +1,10 @@
 # Changelog
 
-## 1.3.1
+## 1.3.2
 - Ampliado el pack de 19 a 33 Skills.
 - Añadidas Skills de consola, rutas GitHub Pages, mobile touch, local-first, pulido de producto, compatibilidad, dependencias cero y empaquetado ZIP.
 - Añadidas Skills de API keys, diseño de funciones IA, Ollama local, landing oscura, biblia narrativa y checklist KDP.
-- Actualizada la web para mostrar 33 Skills y descargar el pack v1.3.1.
+- Actualizada la web para mostrar 33 Skills y descargar el pack v1.3.2.
 - Actualizado service worker para evitar caché antigua.
 
 ## 1.2.1
