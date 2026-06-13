@@ -1,0 +1,34 @@
+{
+  "name": "i-roig-claude-skills-pack",
+  "version": "1.2.1",
+  "description": "Skills para Claude/Claude Code: apps GitHub, PWA, seguridad, debugging, prompts, narrativa, marca oscura, testing y despliegue.",
+  "skills": [
+    "accessibility-basic-auditor",
+    "ai-integration-planner",
+    "brand-voice-dark",
+    "claude-skill-builder",
+    "codebase-context-loader",
+    "github-app-auditor",
+    "github-pages-deploy-check",
+    "local-storage-data-auditor",
+    "loop-engineering-agent",
+    "novelist-editor-hard",
+    "prompt-optimizer-claude",
+    "pwa-offline-auditor",
+    "readme-github-pro",
+    "release-finalizer",
+    "safari-ios-compat-auditor",
+    "security-privacy-review",
+    "systematic-debugger",
+    "test-plan-generator",
+    "ui-ux-mobile-auditor"
+  ],
+  "author": "I. Roig",
+  "repository": "https://github.com/tu-usuario/i-roig-claude-skills-pack",
+  "license": "MIT",
+  "minimum_structure": {
+    "skill_entrypoint": "SKILL.md",
+    "personal_install_path": "~/.claude/skills",
+    "project_install_path": ".claude/skills"
+  }
+}

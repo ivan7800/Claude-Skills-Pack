@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Panel web offline para explorar, copiar, descargar e instalar el I. Roig Claude Skills Pack." />
+  <meta name="theme-color" content="#111827" />
+  <title>I. Roig Claude Skills Pack</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="hero">
+    <nav class="topbar" aria-label="Navegación principal">
+      <div class="brand" aria-label="I. Roig Claude Skills Pack">
+        <span class="brand-mark">Ω</span>
+        <span>
+          <strong>I. Roig</strong>
+          <small>Claude Skills Pack</small>
+        </span>
+      </div>
+      <div class="top-actions">
+        <button class="ghost" id="installPwaBtn" type="button" hidden>Instalar app</button>
+        <button class="ghost" id="themeBtn" type="button" aria-label="Cambiar tema">Modo</button>
+        <a class="ghost" href="./downloads/i-roig-claude-skills-pack-github-v1.2.1.zip" download>ZIP original</a>
+      </div>
+    </nav>
+
+    <section class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">HTML + CSS + JavaScript · GitHub Pages · Offline-first</p>
+        <h1>Panel web para gestionar tus Claude Skills.</h1>
+        <p class="lead">Explora las Skills, copia comandos, genera flujos de trabajo, descarga el pack completo y úsalo como landing page profesional del repositorio.</p>
+        <div class="hero-actions">
+          <button class="primary" id="downloadPackBtn" type="button">Descargar pack generado</button>
+          <button class="secondary" id="copyInstallBtn" type="button">Copiar instalación Windows</button>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Resumen del pack">
+        <div class="score">9.4<span>/10</span></div>
+        <p>GitHub-ready, instalable, documentado y preparado para trabajar con apps, narrativa, PWA, seguridad y debugging.</p>
+        <div class="stats" role="list">
+          <span role="listitem"><strong id="statSkills">19</strong>Skills</span>
+          <span role="listitem"><strong>0</strong>Dependencias</span>
+          <span role="listitem"><strong>100%</strong>Local</span>
+        </div>
+      </aside>
+    </section>
+  </header>
+
+  <main id="main">
+    <section class="panel" aria-labelledby="controlTitle">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Catálogo</p>
+          <h2 id="controlTitle">Busca la Skill exacta</h2>
+        </div>
+        <div class="mini-status" id="miniStatus">Listo</div>
+      </div>
+
+      <div class="controls">
+        <label class="searchbox">
+          <span>Buscar</span>
+          <input id="searchInput" type="search" placeholder="Ej: Safari, GitHub Pages, seguridad, novela..." autocomplete="off" />
+        </label>
+        <label class="selectbox">
+          <span>Categoría</span>
+          <select id="categorySelect"></select>
+        </label>
+        <label class="selectbox">
+          <span>Vista</span>
+          <select id="viewSelect">
+            <option value="all">Todas</option>
+            <option value="favorites">Favoritas</option>
+            <option value="high">Prioridad alta</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="quick-filters" id="quickFilters" aria-label="Filtros rápidos"></div>
+      <div class="cards" id="skillsGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="panel split" aria-labelledby="workflowTitle">
+      <div>
+        <p class="eyebrow">Flujo recomendado</p>
+        <h2 id="workflowTitle">Generador de comandos</h2>
+        <p class="muted">Elige el caso y la app te propone una secuencia de Skills para usar en Claude Code.</p>
+        <div class="workflow-form">
+          <label>
+            Tipo de proyecto
+            <select id="projectType">
+              <option value="html">App HTML/JS para GitHub</option>
+              <option value="pwa">PWA offline</option>
+              <option value="bug">Bug concreto</option>
+              <option value="safari">Fallo en iPhone/Safari</option>
+              <option value="ai">App con IA/API key</option>
+              <option value="novel">Novela / capítulo</option>
+            </select>
+          </label>
+          <label>
+            Objetivo
+            <input id="workflowGoal" type="text" placeholder="Ej: dejarla lista para GitHub Pages" />
+          </label>
+          <button class="primary" id="buildWorkflowBtn" type="button">Crear flujo</button>
+        </div>
+      </div>
+      <div class="terminal" aria-label="Comandos recomendados">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <pre id="workflowOutput">/codebase-context-loader Primero entiende este repo.
+/github-app-auditor Revisa si está listo para GitHub.
+/test-plan-generator Crea pruebas finales reproducibles.
+/release-finalizer Déjalo como release candidate.</pre>
+        <button class="ghost full" id="copyWorkflowBtn" type="button">Copiar flujo</button>
+      </div>
+    </section>
+
+    <section class="panel grid-2" aria-labelledby="installTitle">
+      <div>
+        <p class="eyebrow">Instalación</p>
+        <h2 id="installTitle">Cómo usarlo con Claude Code</h2>
+        <ol class="steps">
+          <li>Descarga el ZIP del pack.</li>
+          <li>Descomprímelo en tu ordenador.</li>
+          <li>Instálalo como Skills personales o dentro de un repo.</li>
+          <li>Abre Claude Code y usa comandos como <code>/github-app-auditor</code>.</li>
+        </ol>
+      </div>
+      <div class="code-cards">
+        <article>
+          <h3>Windows</h3>
+          <pre><code>./install-windows.ps1</code></pre>
+          <button class="ghost copy-static" data-copy="./install-windows.ps1" type="button">Copiar</button>
+        </article>
+        <article>
+          <h3>macOS / Linux</h3>
+          <pre><code>chmod +x install-macos-linux.sh
+./install-macos-linux.sh</code></pre>
+          <button class="ghost copy-static" data-copy="chmod +x install-macos-linux.sh
+./install-macos-linux.sh" type="button">Copiar</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="releaseTitle">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Release</p>
+          <h2 id="releaseTitle">Checklist antes de publicar en GitHub</h2>
+        </div>
+        <button class="ghost" id="resetChecklistBtn" type="button">Reiniciar</button>
+      </div>
+      <div class="checklist" id="releaseChecklist"></div>
+    </section>
+
+    <section class="panel split" aria-labelledby="notesTitle">
+      <div>
+        <p class="eyebrow">Notas locales</p>
+        <h2 id="notesTitle">Apunta tus mejoras</h2>
+        <p class="muted">Se guardan solo en este navegador mediante localStorage. No se envía nada a internet.</p>
+      </div>
+      <label class="notes-box">
+        <span>Notas del proyecto</span>
+        <textarea id="notesInput" placeholder="Ej: añadir Skill para apps con música, corregir Safari audio, crear demo..."></textarea>
+      </label>
+    </section>
+  </main>
+
+  <dialog id="skillDialog" class="skill-dialog">
+    <button class="dialog-close" id="closeDialogBtn" type="button" aria-label="Cerrar">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="footer">
+    <p>Hecho para GitHub Pages. Sin dependencias externas. Funciona en local y como PWA cuando se sirve por HTTPS.</p>
+    <p><strong>I. Roig Claude Skills Pack</strong> · v1.2.1 web · basado en el pack v1.2.1</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
