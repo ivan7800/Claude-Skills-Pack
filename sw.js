@@ -1,4 +1,4 @@
-const CACHE = 'iroig-claude-skills-web-v2';
+const CACHE = 'iroig-claude-skills-web-v1.3.1';
 const ASSETS = ['./', './index.html', './style.css', './app.js', './manifest.json', './icons/icon.svg'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));

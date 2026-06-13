@@ -1,7 +1,7 @@
 {
   "name": "I. Roig Claude Skills Pack",
   "short_name": "Roig Skills",
-  "description": "Panel web offline para gestionar Claude Skills.",
+  "description": "Panel web offline para gestionar 33 Claude Skills.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

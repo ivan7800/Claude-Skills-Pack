@@ -6,17 +6,34 @@ Funciona con **HTML + CSS + JavaScript puro**, sin dependencias externas y prepa
 
 ## Qué incluye
 
-- Catálogo visual de 19 Claude Skills.
+- Catálogo visual de 33 Claude Skills.
 - Buscador y filtros por categoría.
 - Favoritas con `localStorage`.
 - Generador de flujos de comandos para Claude Code.
 - Descarga de `SKILL.md` individual.
 - Generación de ZIP del pack directamente en el navegador.
-- Botón de descarga del ZIP original.
+- Botón de descarga del ZIP del pack v1.3.1.
 - Checklist de release guardado en local.
 - Notas locales privadas.
 - Modo claro/oscuro.
 - PWA offline cuando se sirve por HTTPS.
+
+## Nuevas Skills v1.3.1
+
+- `console-error-hunter`
+- `github-pages-path-fixer`
+- `mobile-touch-auditor`
+- `local-first-architecture`
+- `app-product-polisher`
+- `browser-compatibility-auditor`
+- `no-dependency-auditor`
+- `zip-release-builder`
+- `api-key-safety-planner`
+- `ai-feature-designer`
+- `ollama-local-planner`
+- `dark-landing-page-writer`
+- `fiction-world-bible-builder`
+- `kdp-launch-checklist`
 
 ## Uso local
 
@@ -76,10 +93,11 @@ examples/
 scripts/
 ```
 
-## Estado v1.2.1
+## Estado v1.3.1
 
-- Referencia eliminada de Brand Voice Dark.
-- Validación del pack corregida: `VERSION` y `skills-manifest.json` están sincronizados.
+- Ampliado de 19 a 33 Skills.
+- Añadidas Skills para consola, rutas de GitHub Pages, móvil táctil, arquitectura local-first, pulido de producto, compatibilidad, dependencias cero, ZIP releases, API keys, diseño IA, Ollama, landing oscura, biblia narrativa y KDP.
+- Sincronizados `VERSION`, `skills-manifest.json`, web app y ZIP descargable.
 - Listo para GitHub Pages tras prueba manual en navegador.
 
 ## Nota
