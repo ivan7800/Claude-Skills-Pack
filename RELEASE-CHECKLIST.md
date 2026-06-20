@@ -11,3 +11,6 @@
 - [ ] Probar notas y checklist localStorage.
 - [ ] Publicar en GitHub Pages.
 - [ ] Validar que `sw.js` no rompe rutas en subcarpeta.
+- [ ] Probar apertura de Skill y favorito dentro del modal.
+- [ ] Probar comportamiento si el navegador bloquea localStorage.
+- [ ] Validar descarga del ZIP v1.3.3.

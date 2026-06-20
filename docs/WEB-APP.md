@@ -8,8 +8,8 @@ Esta carpeta raíz funciona como una app estática para GitHub Pages.
 - Copia de comandos.
 - Descarga de SKILL.md.
 - Generación de ZIP sin dependencias.
-- PWA offline cuando se sirve por HTTPS.
-- Favoritas y notas locales con localStorage.
+- PWA offline reforzada cuando se sirve por HTTPS.
+- Favoritas y notas locales con persistencia segura: usa localStorage cuando está disponible y memoria de sesión si el navegador lo bloquea.
 
 ## Limitaciones reales
 

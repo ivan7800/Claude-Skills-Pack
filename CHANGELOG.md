@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.3
+- Corregido riesgo de pantalla en blanco si `localStorage` no está disponible.
+- Añadido fallback para navegadores sin soporte completo de `<dialog>`.
+- Reforzado `sw.js` para cachear solo recursos válidos del mismo origen.
+- Mejorados controles táctiles, estado accesible del tema y compatibilidad móvil.
+- Sincronizados `VERSION`, `skills-manifest.json`, web app y ZIP descargable.
+
 ## 1.3.2
 - Ampliado el pack de 19 a 33 Skills.
 - Añadidas Skills de consola, rutas GitHub Pages, mobile touch, local-first, pulido de producto, compatibilidad, dependencias cero y empaquetado ZIP.

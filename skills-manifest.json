@@ -1,7 +1,7 @@
 {
   "name": "i-roig-claude-skills-pack",
-  "version": "1.3.2",
-  "description": "33 Skills para Claude/Claude Code: apps GitHub, PWA, seguridad, debugging, prompts, IA local, narrativa, KDP, testing y despliegue.",
+  "version": "1.3.3",
+  "description": "33 Skills para Claude/Claude Code: apps GitHub, PWA, seguridad, debugging, prompts, IA local, narrativa, KDP, testing y despliegue. Versión web reforzada para móvil, Safari y PWA.",
   "skills": [
     "accessibility-basic-auditor",
     "ai-feature-designer",

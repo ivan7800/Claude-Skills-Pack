@@ -12,13 +12,22 @@ Funciona con **HTML + CSS + JavaScript puro**, sin dependencias externas y prepa
 - Generador de flujos de comandos para Claude Code.
 - Descarga de `SKILL.md` individual.
 - Generación de ZIP del pack directamente en el navegador.
-- Botón de descarga del ZIP del pack v1.3.2.
+- Botón de descarga del ZIP del pack v1.3.3.
 - Checklist de release guardado en local.
 - Notas locales privadas.
 - Modo claro/oscuro.
-- PWA offline cuando se sirve por HTTPS.
+- PWA offline reforzada cuando se sirve por HTTPS.
 
-## Nuevas Skills v1.3.2
+
+## Mejoras v1.3.3
+
+- Persistencia local blindada: si `localStorage` falla en Safari/iOS o modo privado, la app no queda en blanco y usa memoria de sesión.
+- Modal de Skills compatible: fallback para navegadores sin soporte completo de `<dialog>`.
+- Service worker más seguro: solo cachea respuestas válidas del mismo origen y evita guardar errores.
+- Botones táctiles y controles reforzados para móvil.
+- Tema claro/oscuro con estado accesible.
+
+## Nuevas Skills v1.3.3
 
 - `console-error-hunter`
 - `github-pages-path-fixer`
@@ -93,7 +102,7 @@ examples/
 scripts/
 ```
 
-## Estado v1.3.2
+## Estado v1.3.3
 
 - Ampliado de 19 a 33 Skills.
 - Añadidas Skills para consola, rutas de GitHub Pages, móvil táctil, arquitectura local-first, pulido de producto, compatibilidad, dependencias cero, ZIP releases, API keys, diseño IA, Ollama, landing oscura, biblia narrativa y KDP.
