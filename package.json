@@ -1,0 +1,14 @@
+{
+  "name": "i-roig-claude-skills-web",
+  "version": "1.3.4",
+  "private": true,
+  "description": "Static offline-first web panel for the I. Roig Claude Skills Pack.",
+  "scripts": {
+    "validate": "python scripts/validate-skills-pack.py && node --check app.js && node --check sw.js",
+    "smoke": "node scripts/smoke-test-chromium.mjs",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0"
+  }
+}

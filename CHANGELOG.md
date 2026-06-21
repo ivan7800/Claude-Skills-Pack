@@ -1,11 +1,11 @@
 # Changelog
 
-## 1.3.3
-- Corregido riesgo de pantalla en blanco si `localStorage` no está disponible.
-- Añadido fallback para navegadores sin soporte completo de `<dialog>`.
-- Reforzado `sw.js` para cachear solo recursos válidos del mismo origen.
-- Mejorados controles táctiles, estado accesible del tema y compatibilidad móvil.
-- Sincronizados `VERSION`, `skills-manifest.json`, web app y ZIP descargable.
+## 1.3.4
+- Añadidos tests E2E Playwright versionados.
+- Añadido smoke test automático sin dependencias usando Chromium headless.
+- Añadida guía de prueba física iPhone/Safari y documentación de límites reales del navegador.
+- Actualizado workflow de GitHub Actions para validar sintaxis, pack, smoke y E2E.
+- Sincronizados `VERSION`, `skills-manifest.json`, web app, service worker y ZIP descargable.
 
 ## 1.3.2
 - Ampliado el pack de 19 a 33 Skills.

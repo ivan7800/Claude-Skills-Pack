@@ -32,7 +32,7 @@ if not VERSION.exists():
 else:
     version = read_text(VERSION).strip()
     if not re.fullmatch(r"\d+\.\d+\.\d+", version):
-        errors.append("VERSION must use semantic versioning, for example 1.3.3")
+        errors.append("VERSION must use semantic versioning, for example 1.3.4")
     if manifest and manifest.get("version") != version:
         errors.append("VERSION does not match skills-manifest.json")
 
@@ -86,11 +86,35 @@ for skill in skill_dirs:
 
 required_repo_files = [
     "README.md", "LICENSE", "CHANGELOG.md", "SECURITY.md", "CONTRIBUTING.md",
-    ".gitignore", ".github/workflows/validate.yml", "docs/INSTALLATION.md", "docs/USAGE.md"
+    ".gitignore", ".github/workflows/validate.yml", "docs/INSTALLATION.md", "docs/USAGE.md",
+    "docs/IPHONE-SAFARI-QA.md", "docs/BROWSER-LIMITS.md", "package.json", "playwright.config.js",
+    "tests/e2e/app.spec.js", "scripts/smoke-test-chromium.mjs"
 ]
 for rel in required_repo_files:
     if not (ROOT / rel).exists():
         errors.append(f"Missing repository file: {rel}")
+
+# Web/release version consistency checks
+versioned_files = ["README.md", "CHANGELOG.md", "index.html", "sw.js", "package.json", "playwright.config.js"]
+if version:
+    for rel in versioned_files:
+        path = ROOT / rel
+        if path.exists() and version not in read_text(path):
+            errors.append(f"{rel} does not mention current VERSION {version}")
+
+# Playwright tests should contain at least one mobile profile reference.
+config_path = ROOT / "playwright.config.js"
+if config_path.exists():
+    config_text = read_text(config_path)
+    if "iPhone" not in config_text or "Pixel" not in config_text:
+        errors.append("playwright.config.js should include mobile viewport projects")
+
+# Smoke test must stay dependency-free; it should not import Playwright/Puppeteer.
+smoke_path = ROOT / "scripts/smoke-test-chromium.mjs"
+if smoke_path.exists():
+    smoke_text = read_text(smoke_path)
+    if "playwright" in smoke_text.lower() or "puppeteer" in smoke_text.lower():
+        errors.append("smoke-test-chromium.mjs should remain dependency-free")
 
 if errors:
     print("ERROR: pack validation failed")

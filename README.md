@@ -2,53 +2,34 @@
 
 Panel web estático para explorar, copiar, descargar y documentar el **I. Roig Claude Skills Pack**.
 
-Funciona con **HTML + CSS + JavaScript puro**, sin dependencias externas y preparado para **GitHub Pages**.
+Funciona con **HTML + CSS + JavaScript puro**, sin dependencias de runtime y preparado para **GitHub Pages**.
 
 ## Qué incluye
 
 - Catálogo visual de 33 Claude Skills.
-- Buscador y filtros por categoría.
-- Favoritas con `localStorage`.
+- Buscador por varias palabras y filtros por categoría.
+- Favoritas con almacenamiento seguro: si `localStorage` falla, usa memoria de sesión.
 - Generador de flujos de comandos para Claude Code.
 - Descarga de `SKILL.md` individual.
 - Generación de ZIP del pack directamente en el navegador.
-- Botón de descarga del ZIP del pack v1.3.3.
-- Checklist de release guardado en local.
-- Notas locales privadas.
-- Modo claro/oscuro.
-- PWA offline reforzada cuando se sirve por HTTPS.
+- Botón de descarga del ZIP del pack v1.3.4.
+- Checklist de release y notas locales privadas.
+- Modo claro/oscuro accesible.
+- PWA offline reforzada cuando se sirve por HTTPS o GitHub Pages.
+- Pruebas versionadas: smoke test sin dependencias y suite E2E Playwright.
 
+## Mejoras v1.3.4
 
-## Mejoras v1.3.3
-
-- Persistencia local blindada: si `localStorage` falla en Safari/iOS o modo privado, la app no queda en blanco y usa memoria de sesión.
-- Modal de Skills compatible: fallback para navegadores sin soporte completo de `<dialog>`.
-- Service worker más seguro: solo cachea respuestas válidas del mismo origen y evita guardar errores.
-- Botones táctiles y controles reforzados para móvil.
-- Tema claro/oscuro con estado accesible.
-
-## Nuevas Skills v1.3.3
-
-- `console-error-hunter`
-- `github-pages-path-fixer`
-- `mobile-touch-auditor`
-- `local-first-architecture`
-- `app-product-polisher`
-- `browser-compatibility-auditor`
-- `no-dependency-auditor`
-- `zip-release-builder`
-- `api-key-safety-planner`
-- `ai-feature-designer`
-- `ollama-local-planner`
-- `dark-landing-page-writer`
-- `fiction-world-bible-builder`
-- `kdp-launch-checklist`
+- Añadido `package.json`, `playwright.config.js` y tests E2E en `tests/e2e/app.spec.js`.
+- Añadido smoke test automático sin dependencias en `scripts/smoke-test-chromium.mjs`.
+- Añadida guía específica de validación real en iPhone/Safari.
+- Añadida documentación de límites reales del navegador.
+- Workflow de GitHub Actions ampliado para validar Python, JavaScript, smoke test y E2E.
+- Sincronizada versión en `VERSION`, `skills-manifest.json`, web, service worker y ZIP descargable.
 
 ## Uso local
 
-Abre `index.html` directamente en el navegador.
-
-Para probar como servidor local:
+Puedes abrir `index.html` directamente, pero para probar PWA/service worker usa servidor local:
 
 ```bash
 python -m http.server 8080
@@ -58,6 +39,30 @@ Luego abre:
 
 ```text
 http://localhost:8080
+```
+
+## Pruebas
+
+Smoke test sin dependencias externas, usando Chromium si está instalado:
+
+```bash
+node scripts/smoke-test-chromium.mjs
+```
+
+Suite E2E con Playwright:
+
+```bash
+npm install
+npx playwright install chromium
+npm run test:e2e
+```
+
+Validación del pack:
+
+```bash
+python scripts/validate-skills-pack.py
+node --check app.js
+node --check sw.js
 ```
 
 ## Publicar en GitHub Pages
@@ -70,6 +75,7 @@ http://localhost:8080
    - Branch: `main`
    - Folder: `/root`
 5. Guarda.
+6. Abre la URL pública y ejecuta la checklist de `docs/IPHONE-SAFARI-QA.md` si vas a validar iOS.
 
 ## Instalar las Skills en Claude Code
 
@@ -94,21 +100,21 @@ style.css
 app.js
 manifest.json
 sw.js
-icons/
-downloads/
-skills/
-docs/
-examples/
+package.json
+playwright.config.js
 scripts/
+tests/
+docs/
+skills/
+downloads/
 ```
 
-## Estado v1.3.3
+## Límites honestos
 
-- Ampliado de 19 a 33 Skills.
-- Añadidas Skills para consola, rutas de GitHub Pages, móvil táctil, arquitectura local-first, pulido de producto, compatibilidad, dependencias cero, ZIP releases, API keys, diseño IA, Ollama, landing oscura, biblia narrativa y KDP.
-- Sincronizados `VERSION`, `skills-manifest.json`, web app y ZIP descargable.
-- Listo para GitHub Pages tras prueba manual en navegador.
+- Ningún navegador puede instalar automáticamente archivos en `~/.claude/skills/`; por seguridad, el usuario debe descargar y ejecutar el instalador local.
+- El service worker no funciona abriendo `index.html` como archivo local; requiere `localhost`, HTTPS o GitHub Pages.
+- Safari/iPhone real puede comportarse distinto a Chrome móvil simulado. Por eso existe una checklist física en `docs/IPHONE-SAFARI-QA.md`.
 
-## Nota
+## Licencia
 
-La web no instala automáticamente archivos en `~/.claude/skills/`, porque el navegador no puede escribir en carpetas internas del sistema por seguridad. Sí permite descargar, copiar comandos y guiar la instalación.
+MIT.

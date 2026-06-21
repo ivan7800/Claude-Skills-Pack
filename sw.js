@@ -1,12 +1,12 @@
-const CACHE = 'iroig-claude-skills-web-v1.3.3';
+const CACHE = 'iroig-claude-skills-web-v1.3.4';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=1.3.3',
-  './app.js?v=1.3.3',
+  './style.css?v=1.3.4',
+  './app.js?v=1.3.4',
   './manifest.json',
   './icons/icon.svg',
-  './downloads/i-roig-claude-skills-pack-github-v1.3.3.zip'
+  './downloads/i-roig-claude-skills-pack-github-v1.3.4.zip'
 ];
 
 self.addEventListener('install', event => {
